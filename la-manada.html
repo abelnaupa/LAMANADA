@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Manada | Automatización de Agendas para Clínicas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #FAFAFA; 
+            color: #111827; 
+        }
+        h1, h2, h3, .font-serif { 
+            font-family: 'Playfair Display', serif; 
+        }
+        .bg-gradient-brand { 
+            background: linear-gradient(135deg, #FF6B35 0%, #E84D15 100%); 
+        }
+        .text-brand { color: #FF6B35; }
+        .border-brand { border-color: #FF6B35; }
+        
+        /* Patrón de fondo sutil */
+        .bg-pattern {
+            background-image: radial-gradient(#E5E7EB 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Estilos personalizados para los sliders (Gamificación) */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #FF6B35;
+            cursor: pointer;
+            margin-top: -8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8px;
+            cursor: pointer;
+            background: #374151;
+            border-radius: 4px;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+@media (max-width: 900px) { 
+img { 
+   max-width: 100%;
+   height: auto;
+}
+
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+}	
+
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- HERO SECTION -->
+    <header class="relative pt-20 pb-32 lg:pt-28 lg:pb-40 overflow-hidden bg-white bg-pattern">
+        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center flex flex-col items-center">
+            
+            <!-- Logo -->
+            <img src="la manada (1).png" alt="La Manada Logo" class="h-28 md:h-36 mb-10 drop-shadow-sm object-contain hover:scale-105 transition-transform duration-300">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 border border-orange-100 text-orange-600 text-sm font-semibold mb-6 tracking-wide">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+                </span>
+                Agendamiento Autónomo 24/7
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight tracking-tight text-gray-900">
+                Eliminamos el <span class="text-brand italic">cuello de botella</span> de tu WhatsApp.
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-xl text-gray-600 mb-12 leading-relaxed font-light">
+                Implementamos un sistema inteligente que atiende, filtra y agenda a tus pacientes en piloto automático. Recupera tu tiempo y multiplica tus ventas.
+            </p>
+            
+            <a href="#formulario" class="bg-gradient-brand text-white px-10 py-5 rounded-full font-bold text-lg shadow-xl shadow-orange-500/30 hover:-translate-y-1 hover:shadow-orange-500/50 transition-all duration-300 flex items-center gap-3">
+                Automatizar mi clínica
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- STORYTELLING: EL PROBLEMA -->
+    <section class="py-24 bg-gray-900 text-white relative">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div class="space-y-6">
+                <h2 class="text-4xl font-serif leading-tight">¿Tu Centro de Estética pierde dinero por responder tarde?</h2>
+                <div class="w-20 h-1 bg-brand rounded-full"></div>
+                <p class="text-gray-400 leading-relaxed text-lg font-light">
+                    En el sector estético, la velocidad de respuesta lo es todo. Si una paciente potencial escribe preguntando por un tratamiento y tardas horas en contestar porque estás en sesión, es casi seguro que <strong>ya está agendando con tu competencia</strong>.
+                </p>
+                <p class="text-gray-400 leading-relaxed text-lg font-light">
+                    Has dejado de ser el dueño de tu negocio para convertirte en el esclavo de las notificaciones de WhatsApp.
+                </p>
+            </div>
+            
+            <div class="bg-gray-800 p-8 md:p-10 rounded-3xl border border-gray-700 relative">
+                <div class="absolute -top-6 -left-6 text-7xl text-gray-700 opacity-50 font-serif">"</div>
+                <p class="relative z-10 text-xl md:text-2xl font-serif italic leading-relaxed text-gray-200">
+                    Abriste tu clínica para dar tratamientos de primer nivel y transformar vidas, pero terminaste atrapado revisando agendas, persiguiendo confirmaciones y perdiendo ventas.
+                </p>
+                <div class="mt-6 flex items-center gap-4">
+                    <div class="w-12 h-1 bg-gray-600"></div>
+                    <span class="text-sm uppercase tracking-widest text-gray-500 font-semibold">La realidad de muchas clínicas</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GAMIFICACIÓN: CALCULADORA INTERACTIVA -->
+    <section class="py-24 bg-white border-b border-gray-100">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-brand font-bold tracking-wider uppercase text-sm">Descubre la verdad</span>
+                <h2 class="text-4xl md:text-5xl font-serif mt-3 mb-4 text-gray-900">Mide tu "Fuga de Dinero" 💸</h2>
+                <p class="text-gray-500 text-lg">Juega con los valores de tu clínica y descubre cuánto estás dejando de ganar cada mes por no responder al instante.</p>
+            </div>
+            
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl shadow-gray-200/50 border border-gray-100">
+                <div class="grid gap-12">
+                    <!-- Slider 1 -->
+                    <div>
+                        <div class="flex justify-between items-end mb-4">
+                            <label class="text-sm font-bold uppercase tracking-wider text-gray-700">Mensajes de WhatsApp al mes</label>
+                            <span class="text-3xl font-bold text-gray-900"><span id="v-consultas">100</span></span>
+                        </div>
+                        <input type="range" id="consultas" min="10" max="1000" step="10" value="100">
+                        <div class="flex justify-between text-xs text-gray-400 mt-2 font-medium">
+                            <span>10</span>
+                            <span>1000+</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Slider 2 -->
+                    <div>
+                        <div class="flex justify-between items-end mb-4">
+                            <label class="text-sm font-bold uppercase tracking-wider text-gray-700">Ticket promedio por paciente ($)</label>
+                            <span class="text-3xl font-bold text-gray-900">$<span id="v-valor">150</span></span>
+                        </div>
+                        <input type="range" id="valor" min="20" max="2000" step="10" value="150">
+                        <div class="flex justify-between text-xs text-gray-400 mt-2 font-medium">
+                            <span>$20</span>
+                            <span>$2000+</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Resultado -->
+                <div class="mt-12 p-8 bg-orange-50 border border-orange-100 rounded-2xl text-center transform transition-all duration-500 hover:scale-[1.02]">
+                    <p class="text-sm font-bold uppercase tracking-widest text-orange-600 mb-2">Estás perdiendo aproximadamente</p>
+                    <div class="flex items-start justify-center gap-1">
+                        <span class="text-4xl font-bold text-orange-500 mt-2">$</span>
+                        <span id="resultado" class="text-6xl md:text-7xl font-bold text-brand tracking-tighter">4,500</span>
+                    </div>
+                    <p class="text-orange-800/60 font-medium mt-1">al mes</p>
+                    <p class="text-xs text-gray-500 mt-6 leading-relaxed max-w-lg mx-auto">
+                        *Cálculo conservador asumiendo que un <strong>30%</strong> de los pacientes potenciales no agendan porque se enfrían ante la falta de respuesta inmediata.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFICIOS (La Solución) -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif text-gray-900">La solución de La Manada</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
+                    <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Filtro de Alta Calidad</h3>
+                    <p class="text-gray-600 leading-relaxed">Olvídate de los "solo preguntones". Nuestro sistema califica a los prospectos y solo envía a tu calendario a aquellos que realmente quieren comprar.</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
+                    <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Recepción 24/7</h3>
+                    <p class="text-gray-600 leading-relaxed">Tu clínica sigue vendiendo mientras duermes. Los pacientes pueden resolver sus dudas y agendar sus citas un domingo a las 3:00 a.m. sin problemas.</p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
+                    <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Paz Mental Total</h3>
+                    <p class="text-gray-600 leading-relaxed">Devolvemos la operatividad al sistema. Tú vuelves a ser el director de la clínica, viendo cómo los números suben sin estar pegado al celular.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO HUBSPOT -->
+    <section id="formulario" class="py-24 bg-white border-t border-gray-100">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="bg-gray-900 rounded-[2rem] p-8 md:p-16 shadow-2xl relative overflow-hidden">
+                <!-- Elemento decorativo -->
+                <div class="absolute top-0 right-0 -mt-16 -mr-16 w-64 h-64 bg-brand rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+                
+                <div class="text-center mb-12 relative z-10">
+                    <h2 class="text-4xl font-serif text-white mb-4">Da el salto evolutivo</h2>
+                    <p class="text-gray-400 text-lg">Completa el formulario y descubre cómo podemos implementar la automatización en tu clínica en menos de 7 días.</p>
+                </div>
+                
+                <!-- Contenedor del Formulario HubSpot -->
+                <div class="bg-white p-8 rounded-2xl relative z-10 shadow-inner">
+                    <!-- Script real de Hubspot proporcionado por el usuario -->
+                    <script src="https://js.hsforms.net/forms/embed/49668051.js" defer></script>
+                    <div class="hs-form-frame" data-region="na1" data-form-id="33598a7d-943b-4ca2-8ef7-640cc2da6ad9" data-portal-id="49668051"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-gray-50 text-center border-t border-gray-200">
+        <div class="flex flex-col items-center justify-center gap-4">
+            <img src="la manada (1).png" alt="Logo La Manada" class="h-12 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+            <p class="text-gray-500 text-sm">© 2024 La Manada. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- LÓGICA DE GAMIFICACIÓN (CALCULADORA) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const consultasInput = document.getElementById('consultas');
+            const valorInput = document.getElementById('valor');
+            const vConsultas = document.getElementById('v-consultas');
+            const vValor = document.getElementById('v-valor');
+            const resultado = document.getElementById('resultado');
+
+            function animarNumero(elemento, valorFinal) {
+                // Pequeña animación visual al cambiar el número final
+                elemento.style.transform = 'scale(1.1)';
+                elemento.style.color = '#E84D15';
+                setTimeout(() => {
+                    elemento.style.transform = 'scale(1)';
+                    elemento.style.color = '';
+                }, 150);
+            }
+
+            function calcularFuga() {
+                const numConsultas = parseInt(consultasInput.value);
+                const ticketPromedio = parseInt(valorInput.value);
+                
+                // Cálculo: Asumimos que se pierde un 30% de los leads por no responder rápido
+                const leadsPerdidos = numConsultas * 0.30;
+                const dineroPerdido = leadsPerdidos * ticketPromedio;
+
+                // Actualizar interfaz
+                vConsultas.innerText = numConsultas;
+                vValor.innerText = ticketPromedio.toLocaleString('en-US');
+                
+                // Formatear el resultado final con comas
+                resultado.innerText = Math.round(dineroPerdido).toLocaleString('en-US');
+                
+                animarNumero(resultado);
+            }
+
+            // Escuchar cambios en los sliders
+            consultasInput.addEventListener('input', calcularFuga);
+            valorInput.addEventListener('input', calcularFuga);
+            
+            // Calcular valor inicial al cargar la página
+            calcularFuga();
+        });
+    </script>
+
+<p style="bottom: 10px; right: 10px; position: absolute;"><a href="https://wordtohtml.net/?utm_source=wth_free_doc_conversion_link&utm_medium=external" target="_blank" style="font-size:11px; color: #d0d0d0">Convertido a HTML con WordToHTML.net</a><span style="font-size:11px; color: #d0d0d0"> | </span><a href="https://documentconverter.pro/?utm_source=wth_free_doc_conversion_link&utm_medium=external" target="_blank" style="font-size:11px; color: #d0d0d0">Convertidor de Documentos para Windows</a></p>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4581d6a58cf94e929fad52deda295622","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
